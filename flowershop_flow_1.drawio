@@ -1,0 +1,261 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 YaBrowser/26.3.0.0 Safari/537.36">
+  <diagram id="flowershop-flow" name="Page-1">
+    <mxGraphModel dx="2316" dy="640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="start" parent="1" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" value="Старт бота" vertex="1">
+          <mxGeometry height="120" width="220" x="430" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="consent" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Согласие на обработку данных" vertex="1">
+          <mxGeometry height="80" width="240" x="420" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="catalog_btn" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Посмотреть весь каталог" vertex="1">
+          <mxGeometry height="70" width="210" x="90" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="catalog" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Листинг букетов" vertex="1">
+          <mxGeometry height="70" width="190" x="100" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="pick_btn" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;" value="Подобрать букет" vertex="1">
+          <mxGeometry height="70" width="220" x="430" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="no_consult" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Мне не нужна консультация" vertex="1">
+          <mxGeometry height="70" width="250" x="780" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="occasion" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="выбор повода&lt;div&gt;день рождения, свадьба, в школу, без повода, “другой повод” с подменю, где бот просит написать “какой повод”.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="450" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="budget" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Примерная стоимость&lt;div&gt;- 500. -1000. -2000&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="450" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="bouquet_card" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Карточка подобранного букета&lt;div&gt;(описание букета , состав, стоимость )&lt;/div&gt;&lt;div&gt;кнопки:&lt;/div&gt;&lt;div&gt;- оформить заказ&lt;/div&gt;&lt;div&gt;-добавить букет из коллекции&amp;nbsp;&lt;/div&gt;&lt;div&gt;-нужна консультация&amp;nbsp;&lt;/div&gt;&lt;div&gt;-вернуться в меню&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="350" x="365" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="order_form" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=12;verticalAlign=top;" value="Оформление заказа&#xa;&#xa;• ФИ&#xa;• Адрес доставки&#xa;• Дата&#xa;• Время&#xa;• Номер телефона&#xa;• Промокод (фича)" vertex="1">
+          <mxGeometry height="240" width="260" x="80" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="payment" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="подтверждение заказа&lt;div&gt;(показ всех данных для проверки)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="180" x="495" y="1045" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" target="consent" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="consent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" target="start" value="нет">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="260" />
+              <mxPoint x="780" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="consent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" target="pick_btn" value="да">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="consent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" target="catalog_btn" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="195" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="consent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" target="no_consult" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="905" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="catalog_btn" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" target="catalog" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="pick_btn" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" target="occasion" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="budget" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" target="bouquet_card" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="bouquet_card" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" target="order_form" value="Оформить заказ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="bouquet_card" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;entryX=0.057;entryY=0.971;entryDx=0;entryDy=0;entryPerimeter=0;" target="no_consult" value="Нужна консультация">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="order_form" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" target="payment" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD1-SUkmee1mBD_dGtCG-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="выбор способа оплаты( фича)" vertex="1">
+          <mxGeometry height="60" width="120" x="510" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="uD1-SUkmee1mBD_dGtCG-3" edge="1" parent="1" source="payment" style="endArrow=classic;html=1;rounded=0;exitX=0.359;exitY=0.985;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.414;entryY=0.044;entryDx=0;entryDy=0;entryPerimeter=0;" target="uD1-SUkmee1mBD_dGtCG-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="570" y="1250" as="sourcePoint" />
+            <mxPoint x="620" y="1200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uD1-SUkmee1mBD_dGtCG-6" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.999;entryY=0.078;entryDx=0;entryDy=0;entryPerimeter=0;" target="order_form" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="1080" />
+            </Array>
+            <mxPoint x="490" y="1080" as="sourcePoint" />
+            <mxPoint x="360" y="1000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uD1-SUkmee1mBD_dGtCG-7" connectable="0" parent="uD1-SUkmee1mBD_dGtCG-6" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="исправить данные" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uD1-SUkmee1mBD_dGtCG-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="заказ оформлен!&lt;div&gt;Спасибо за заказ! мы с Вами сяжемся&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="510" y="1370" as="geometry" />
+        </mxCell>
+        <mxCell id="uD1-SUkmee1mBD_dGtCG-10" edge="1" parent="1" source="uD1-SUkmee1mBD_dGtCG-1" style="endArrow=classic;html=1;rounded=0;exitX=0.414;exitY=1.044;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="510" y="1320" as="sourcePoint" />
+            <mxPoint x="560" y="1380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uD1-SUkmee1mBD_dGtCG-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="пользователь получает&amp;nbsp; все данные о заказе:&lt;div&gt;- информацию о получателе&amp;nbsp;&lt;/div&gt;&lt;div&gt;- способ и время доставки&amp;nbsp;&lt;/div&gt;&lt;div&gt;- состав заказа&amp;nbsp;&lt;/div&gt;&lt;div&gt;- стоимость заказа&lt;/div&gt;&lt;div&gt;- способ оплаты&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;- комментарий&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="220" x="850" y="1165" as="geometry" />
+        </mxCell>
+        <mxCell id="uD1-SUkmee1mBD_dGtCG-12" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.014;entryY=0.449;entryDx=0;entryDy=0;entryPerimeter=0;" target="uD1-SUkmee1mBD_dGtCG-11" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="630" y="1241" as="sourcePoint" />
+            <mxPoint x="850" y="1230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-2" edge="1" parent="1" source="bouquet_card" style="endArrow=classic;html=1;rounded=0;exitX=0.091;exitY=-0.013;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="397" y="600" />
+            </Array>
+            <mxPoint x="540" y="740" as="sourcePoint" />
+            <mxPoint x="290" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-4" connectable="0" parent="7ccmZyYMCTxElOLypQ5y-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="добавить букет из коллекции" vertex="1">
+          <mxGeometry relative="1" x="0.06" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="запрос номера телефона&lt;div&gt;(введите номер телефона и флорист перезвонит Вам в течение 20 минут )&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="160" x="910" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-6" edge="1" parent="1" source="no_consult" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.831;exitY=0.99;exitDx=0;exitDy=0;exitPerimeter=0;" target="7ccmZyYMCTxElOLypQ5y-5" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="570" y="770" as="sourcePoint" />
+            <mxPoint x="620" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="сообщение пользователю&lt;div&gt;(флорист скоро свяжется с Вами, а пока можете присмотерть что-нибудь из готовой коллекции&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="180" x="900" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-8" edge="1" parent="1" source="7ccmZyYMCTxElOLypQ5y-7" style="endArrow=classic;html=1;rounded=0;exitX=-0.017;exitY=0.417;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="catalog_btn" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="720" y="760" />
+              <mxPoint x="720" y="400" />
+              <mxPoint x="248" y="400" />
+            </Array>
+            <mxPoint x="830" y="770" as="sourcePoint" />
+            <mxPoint x="880" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="отправка данных флористу&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="120" x="930" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-12" edge="1" parent="1" source="7ccmZyYMCTxElOLypQ5y-5" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="7ccmZyYMCTxElOLypQ5y-7" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="860" y="730" as="sourcePoint" />
+            <mxPoint x="910" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-13" edge="1" parent="1" source="7ccmZyYMCTxElOLypQ5y-7" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="940" y="930" as="sourcePoint" />
+            <mxPoint x="990" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="выбор цветовой гаммы (фича)&lt;div&gt;белые оттенки, розовые,&amp;nbsp; нежыне и др&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="120" x="480" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-15" edge="1" parent="1" source="7ccmZyYMCTxElOLypQ5y-14" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="budget" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="490" y="800" as="sourcePoint" />
+            <mxPoint x="540" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-16" edge="1" parent="1" source="occasion" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="490" y="700" as="sourcePoint" />
+            <mxPoint x="540" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-17" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="действия в каталоге:&lt;div&gt;- следующий букет&lt;/div&gt;&lt;div&gt;- предыдущий букет&amp;nbsp;&lt;/div&gt;&lt;div&gt;-выбрать букет&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="160" x="-110" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-19" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="50" y="640" as="sourcePoint" />
+            <mxPoint x="100" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="карточка букета&amp;nbsp;&lt;div&gt;фото, описание, состав, стоимость&lt;/div&gt;&lt;div&gt;- оформить заказ&lt;/div&gt;&lt;div&gt;- назад к каталогу&lt;/div&gt;&lt;div&gt;- вернуться в меню&lt;/div&gt;" vertex="1">
+          <mxGeometry height="190" width="120" x="140" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-21" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="7ccmZyYMCTxElOLypQ5y-20" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="630" as="sourcePoint" />
+            <mxPoint x="190" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-22" connectable="0" parent="7ccmZyYMCTxElOLypQ5y-21" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="выбрал букет" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-23" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.39;entryY=0.022;entryDx=0;entryDy=0;entryPerimeter=0;" target="order_form" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="880" as="sourcePoint" />
+            <mxPoint x="190" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-24" connectable="0" parent="7ccmZyYMCTxElOLypQ5y-23" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="Label" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-25" connectable="0" parent="7ccmZyYMCTxElOLypQ5y-23" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="оформить заказ&amp;nbsp;" vertex="1">
+          <mxGeometry relative="1" x="0.0532" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-26" edge="1" parent="1" source="7ccmZyYMCTxElOLypQ5y-20" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.316;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="120" y="760" />
+            </Array>
+            <mxPoint x="20" y="750" as="sourcePoint" />
+            <mxPoint x="120" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-27" connectable="0" parent="7ccmZyYMCTxElOLypQ5y-26" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="назад к каталогу" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-28" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="меню" vertex="1">
+          <mxGeometry height="190" width="1070" x="-10" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-29" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="800" />
+            </Array>
+            <mxPoint x="260" y="800" as="sourcePoint" />
+            <mxPoint x="320" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ccmZyYMCTxElOLypQ5y-30" connectable="0" parent="7ccmZyYMCTxElOLypQ5y-29" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="назад в меню" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
