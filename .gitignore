@@ -1,0 +1,109 @@
+*.lock
+*.toml
+
+# Bytecode и файлы интерпретатора
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Виртуальные окружения (venv)
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+pythonenv*
+
+# Файлы IDE и редакторов
+*.replit
+
+## VS Code
+.vscode/
+.history/
+*.code-workspace
+
+## Sublime Text
+*.sublime-project
+*.sublime-workspace
+.sublime/
+*.sublime-syntax
+*.sublime-settings
+
+## Другие редакторы (на всякий случай)
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Файлы установки пакетов (pip)
+pip-log.txt
+pip-delete-this-directory.txt
+pip-selfcheck.json
+
+# Файлы дистрибутивов и сборки
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Файлы тестирования и покрытия
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.cover
+.hypothesis/
+
+# Логи и базы данных
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# Файлы окружения и переменные
+.env
+.env.local
+.env.*.local
+
+# Файлы проекта
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter Notebook (если используете)
+.ipynb_checkpoints/
+
+# Файлы документации (если генерируете)
+docs/_build/
+
+# Файлы профилирования
+*.prof
+
+# Временные файлы
+*.tmp
+*.temp
+*.bak
+*.cache
+
+# Файлы, специфичные для учебных проектов
+test_output/
+tmp/
+temp/
+scratch/
