@@ -55,3 +55,26 @@ def get_occasion_keyboard():
     ]
 
     return InlineKeyboardMarkup(keyboard)
+
+
+def get_catalog_keyboard():
+    keyboard = [
+        [
+            InlineKeyboardButton(
+                "⬅️ Предыдущий",
+                callback_data="previous_bouquet"
+            ),
+            InlineKeyboardButton(
+                "➡️ Следующий",
+                callback_data="next_bouquet"
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                "✅ Выбрать букет",
+                callback_data="select_bouquet"
+            )
+        ]
+    ]
+
+    return InlineKeyboardMarkup(keyboard)
