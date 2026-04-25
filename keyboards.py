@@ -16,9 +16,9 @@ def get_main_menu_keyboard():
         [
             InlineKeyboardButton("[ 📚 Каталог ]", callback_data="catalog"),
             InlineKeyboardButton("[💐 Подобрать букет]",
-                                 callback_data="choose_buqete"),
+                                 callback_data="choose_bouquet"),
             InlineKeyboardButton(
-                "[👩‍🎨 Консультация флориста]", callback_data="consultution")
+                "[👩‍🎨 Консультация флориста]", callback_data="consultation")
         ]
     ]
     return InlineKeyboardMarkup(keyboard)
@@ -29,29 +29,49 @@ def get_occasion_keyboard():
         [
             InlineKeyboardButton(
                 "🎂 День рождения",
-                callback_data="birthday"
+                callback_data="occasion_birthday"
             ),
             InlineKeyboardButton(
                 "💍 Свадьба",
-                callback_data="wedding"
+                callback_data="occasion_wedding"
             )
         ],
         [
             InlineKeyboardButton(
                 "🏫 В школу",
-                callback_data="school"
+                callback_data="occasion_school"
             ),
             InlineKeyboardButton(
                 "🌷 Без повода",
-                callback_data="no_reason"
+                callback_data="occasion_other"
             )
         ],
         [
             InlineKeyboardButton(
                 "✏️ Другой повод",
-                callback_data="other_occasion"
+                callback_data="occasion_no_reason"
             )
         ]
+    ]
+
+    return InlineKeyboardMarkup(keyboard)
+
+
+def get_color_keyboard():
+    keyboard = [
+        [InlineKeyboardButton("🤍 Светлый", callback_data="color_light")],
+        [InlineKeyboardButton("🌈 Яркий", callback_data="color_bright")],
+        [InlineKeyboardButton("🌸 Мягкий", callback_data="color_soft")],
+    ]
+
+    return InlineKeyboardMarkup(keyboard)
+
+
+def get_price_keyboard():
+    keyboard = [
+        [InlineKeyboardButton("500 ₽", callback_data="price_500")],
+        [InlineKeyboardButton("1000 ₽", callback_data="price_1000")],
+        [InlineKeyboardButton("2000 ₽", callback_data="price_2000")],
     ]
 
     return InlineKeyboardMarkup(keyboard)
