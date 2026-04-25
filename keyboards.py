@@ -78,3 +78,16 @@ def get_catalog_keyboard():
     ]
 
     return InlineKeyboardMarkup(keyboard)
+
+
+def get_bouquet_menu_keyboard():
+    keyboard = [
+        [
+            InlineKeyboardButton("[ 💐 оформить заказ ]", callback_data="order"),
+            InlineKeyboardButton("[📚 назад к каталогу]",
+                                 callback_data="catalog"),
+            InlineKeyboardButton(
+                "[ вернуться в меню]", callback_data="main_menu")
+        ]
+    ]
+    return InlineKeyboardMarkup(keyboard)
