@@ -42,4 +42,24 @@ async def handle_color(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text="Выберите бюджет 🌸",
         reply_markup=get_price_keyboard()
     )
-    
+
+
+async def handle_price(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    price = query.data.replace("price_", "")
+    context.user_data["price"] = price
+
+    occasion = context.user_data["occasion"]
+    color = context.user_data["color"]
+
+    await query.edit_message_text(
+        text=(
+            "🌸 Подбор завершён!\n\n"
+            f"Повод: {occasion}\n"
+            f"Цвет: {color}\n"
+            f"Бюджет: {price} ₽\n\n"
+            "Сейчас покажем подходящий букет."
+        )
+    )
