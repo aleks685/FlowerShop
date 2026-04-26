@@ -317,7 +317,7 @@ def main():
             ],
             # меню при выбранном букете (ещё букет? консультация? в меню?)
             BOUQUET_MENU: [
-                CallbackQueryHandler(start_order, pattern="^order$"),
+                CallbackQueryHandler(start_order, pattern="^order"),
                 CallbackQueryHandler(show_catalog, pattern="^catalog$"),
                 CallbackQueryHandler(main_menu, pattern="^main_menu$"),
             ],
