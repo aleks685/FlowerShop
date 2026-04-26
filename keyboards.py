@@ -97,7 +97,7 @@ def get_bouquet_card_keyboard(bouquet_id):
     keyboard = [
         [InlineKeyboardButton("✅ Заказать этот букет", callback_data=f"order_{bouquet_id}")],
         [
-            InlineKeyboardButton("👩‍🎨 Консультация", callback_data="consultation"),
+            InlineKeyboardButton("👩‍🎨 Консультация", callback_data="consultution"),
             InlineKeyboardButton("📚 В каталог", callback_data="catalog")
         ]
     ]
