@@ -176,7 +176,20 @@ def show_bouquet_menu(update, context):
 
 # начало оформления заказа, запрос имени
 def start_order(update, context):
-    context.user_data['order_bouquet'] = context.user_data.get('cur_bouquet')
+    query = update.callback_query
+    
+    if query:
+        query.answer()
+        # Если в data есть ID (например, "order_5"), вытаскиваем его
+        if "_" in query.data:
+            bouquet_id = query.data.split("_")[1]
+            # Сохраняем ID конкретного букета из кнопки
+            context.user_data['order_bouquet_id'] = bouquet_id
+        else:
+            # Если нажали "Заказать" в обычном меню, берем текущий просматриваемый
+            current_idx = context.user_data.get('cur_bouquet', 0)
+            context.user_data['order_bouquet_id'] = bouquets[current_idx]['id']
+
     update.effective_chat.send_message('Для оформления заказа укажите Ваше имя:')
     return SAVE_NAME
 
@@ -243,9 +256,13 @@ def save_date(update, context):
 def send_info_to_courier(update, context):
     context.user_data['order_time'] = update.message.text
     
-    # Собираем данные из того, что мы сохранили выше
+    # Достаем сохраненный ID букета
+    b_id = context.user_data.get('order_bouquet_id', 'Неизвестно')
+    
+    # Собираем данные
     order_details = (
         f"🚀 НОВЫЙ ЗАКАЗ!\n"
+        f"💐 ID букета: {b_id}\n" # Добавили информацию о товаре
         f"Имя: {context.user_data.get('order_name', 'Не указано')}\n"
         f"Телефон: {context.user_data.get('order_phone', 'Не указано')}\n"
         f"Адрес: {context.user_data.get('order_address', 'Не указано')}\n"
@@ -253,11 +270,9 @@ def send_info_to_courier(update, context):
         f"Время: {context.user_data.get('order_time', 'Не указано')}"
     )
     
-    # Отправляем курьеру
     context.bot.send_message(chat_id=COURIER_TG_ID, text=order_details)
-    
-    # Красивое завершение для пользователя
     update.message.reply_text("Спасибо! Ваш заказ принят и передан курьеру. Ждите доставку! 🌸")
+    
     return ConversationHandler.END
 
 
