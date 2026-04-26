@@ -289,9 +289,7 @@ def save_address(update, context):
 def save_date(update, context):
     context.user_data['order_date'] = update.message.text
     update.message.reply_text('Желаемое время доставки:')
-    
-    # Сразу вызываем функцию запроса оплаты, чтобы пользователь увидел инструкцию
-    return request_payment(update, context)
+    return PAYMENT
 
 
 # Запрос оплаты после ввода всех данных
@@ -308,19 +306,24 @@ def request_payment(update, context):
 
 # Ловим скриншот чека
 def handle_payment_screenshot(update, context):
-    if update.message.photo or (update.message.text and len(update.message.text) > 2):
-        # Если прислали фото — сохраняем
-        if update.message.photo:
-            context.user_data['payment_screenshot'] = update.message.photo[-1].file_id
-
-        # Если прислали текст (время), сохраняем его тоже
-        if update.message.text:
-            context.user_data['order_time'] = update.message.text
-
-        update.message.reply_text("✅ Данные получены! Финализируем ваш заказ...")
+    # Если мы еще не сохранили время, значит текущий текст — это время
+    if 'order_time' not in context.user_data:
+        context.user_data['order_time'] = update.message.text
+        # Теперь, когда время есть, просим оплату
+        text = (
+            "💳 Для оплаты переведите сумму по номеру +79991234567.\n"
+            "Пришлите скриншот чека сюда."
+        )
+        update.message.reply_text(text)
+        return PAYMENT # Остаемся в этом же состоянии, ждем фото
+    
+    # Если время уже есть, значит мы ждем фото или подтверждение
+    if update.message.photo:
+        context.user_data['payment_screenshot'] = update.message.photo[-1].file_id
+        update.message.reply_text("✅ Данные получены! Финализируем...")
         return send_info_to_courier(update, context)
     else:
-        update.message.reply_text("Пожалуйста, пришлите скриншот чека для подтверждения оплаты.")
+        update.message.reply_text("Пожалуйста, пришлите именно фото чека.")
         return PAYMENT
 
 
