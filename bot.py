@@ -23,7 +23,7 @@ COURIER_TG_ID = env.str('COURIER_TG_ID')
 # состояния диалога
 START, MAIN_MENU, CATALOG, EVENT_CHOICE, BOUQUET_MENU, COLOR_CHOICE, PRICE_CHOICE, \
     CONSULTATION, SAVE_NAME, SAVE_PHONE, SAVE_ADDRESS, DELIVERY, SAVE_DATE, \
-    ORDER_CONFIRM, PAYMENT_CHOICE = range(15)
+    ORDER_CONFIRM, PAYMENT_CHOICE, PROMOCODE = range(16)
 
 client_contacts = []
 with open('bouquets.json', 'r', encoding='utf-8') as file:
@@ -234,9 +234,23 @@ def save_name(update, context):
     return SAVE_PHONE
 
 
-# сохранение телефона, запрос адреса для доставки
+# сохранение телефона, запрос ПРОМОКОДА
 def save_phone(update, context):
     context.user_data['order_phone'] = update.message.text
+    update.message.reply_text('Введите промокод (если есть) или напишите "нет":')
+    return PROMOCODE # Теперь идем сюда
+
+# Обработка промокода
+def handle_promocode(update, context):
+    user_text = update.message.text.upper().strip()
+    if user_text == "FLOWER2026":
+        context.user_data['discount'] = "10%"
+        update.message.reply_text("🎉 Промокод применен! Скидка 10%")
+    else:
+        context.user_data['discount'] = "0%"
+        if user_text.lower() != "нет":
+            update.message.reply_text("Промокод не найден, продолжаем без скидки.")
+    
     update.message.reply_text('На какой адрес нужна доставка:')
     return SAVE_ADDRESS
 
@@ -265,11 +279,12 @@ def send_info_to_courier(update, context):
     
     # Достаем сохраненный ID букета
     b_id = context.user_data.get('order_bouquet_id', 'Неизвестно')
-    
+    discount = context.user_data.get('discount', '0%')
     # Собираем данные
     order_details = (
         f"🚀 НОВЫЙ ЗАКАЗ!\n"
-        f"💐 ID букета: {b_id}\n" # Добавили информацию о товаре
+        f"💐 ID букета: {b_id}\n"
+        f"💰 Скидка: {discount}\n"
         f"Имя: {context.user_data.get('order_name', 'Не указано')}\n"
         f"Телефон: {context.user_data.get('order_phone', 'Не указано')}\n"
         f"Адрес: {context.user_data.get('order_address', 'Не указано')}\n"
@@ -357,6 +372,8 @@ def main():
             SAVE_NAME:     [MessageHandler(Filters.text, save_name)],
             # Для оформления заказа: телефон
             SAVE_PHONE:    [MessageHandler(Filters.text, save_phone)],
+            # Обработка промокода
+            PROMOCODE:     [MessageHandler(Filters.text, handle_promocode)],
             # Для оформления заказа: адрес доставки
             SAVE_ADDRESS:  [MessageHandler(Filters.text, save_address)],
             # Для оформления заказа: дата доставки
