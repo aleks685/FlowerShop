@@ -125,7 +125,7 @@ def show_catalog(update, context):
         context.user_data['cur_bouquet'] = 0
     bouquet_id = context.user_data['cur_bouquet']
     bouquet = bouquets[bouquet_id]
-    bouquet_photo = f'images/id{bouquet["id"]}.jpg'
+    bouquet_photo = bouquet['image']
     if query:
         query.answer()
         if query.data == "next_bouquet" or query.data == "previous_bouquet":
@@ -166,7 +166,7 @@ def show_bouquet_menu(update, context):
     query.answer()
     bouquet_id = context.user_data['cur_bouquet']
     bouquet = bouquets[bouquet_id]
-    bouquet_photo = Path(f'images/id{bouquet["id"]}.jpg')
+    bouquet_photo = bouquet['image']
     with open(bouquet_photo, 'rb') as file:
         query.edit_message_media(media=InputMediaPhoto(file, caption=f"{bouquet['meaning']}\n"
                                  f"{', '.join(bouquet['composition'])}\n{bouquet['price']} руб."),
