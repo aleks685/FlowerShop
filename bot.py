@@ -78,12 +78,19 @@ def handle_price(update, context):
     max_price = context.user_data.get("price")
 
     # Фильтруем (важно: в JSON ключи теперь на английском!)
-    suitable = [
-        b for b in bouquets 
-        if b['occasion'] == occasion 
-        and b['color'] == color 
-        and b['price'] <= max_price
-    ]
+    if occasion == "other_occasion":
+        suitable = [
+            b for b in bouquets 
+            if (color == "any" or b['color'] == color) 
+            and b['price'] <= max_price
+        ]
+    else:
+        suitable = [
+            b for b in bouquets 
+            if b['occasion'] == occasion 
+            and (color == "any" or b['color'] == color) 
+            and b['price'] <= max_price
+        ]
 
     if not suitable:
         suitable = [b for b in bouquets if b['occasion'] == occasion]
