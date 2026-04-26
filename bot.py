@@ -26,7 +26,7 @@ COURIER_TG_ID = env.str('COURIER_TG_ID')
 # состояния диалога
 START, MAIN_MENU, CATALOG, EVENT_CHOICE, BOUQUET_MENU, COLOR_CHOICE, PRICE_CHOICE, \
     CONSULTATION, SAVE_NAME, SAVE_PHONE, SAVE_ADDRESS, DELIVERY, SAVE_DATE, \
-    ORDER_CONFIRM, PAYMENT_CHOICE, PROMOCODE = range(16)
+    ORDER_CONFIRM, PAYMENT_CHOICE, PROMOCODE, PAYMENT = range(17)
 
 client_contacts = []
 with open('bouquets.json', 'r', encoding='utf-8') as file:
@@ -285,11 +285,43 @@ def save_address(update, context):
     return SAVE_DATE
 
 
-# сохранение даты, запрос времени для доставки
+# сохранение даты, запрос времени для доставки И запрос оплаты
 def save_date(update, context):
     context.user_data['order_date'] = update.message.text
     update.message.reply_text('Желаемое время доставки:')
-    return DELIVERY
+    
+    # Сразу вызываем функцию запроса оплаты, чтобы пользователь увидел инструкцию
+    return request_payment(update, context)
+
+
+# Запрос оплаты после ввода всех данных
+def request_payment(update, context):
+    # Достаем цену выбранного букета (учитывая скидку, если хочешь заморочиться)
+    # Для простоты напишем общую инструкцию
+    text = (
+        "💳 Для оплаты переведите сумму заказа по номеру +79991234567 (СБП, Банк Т).\n"
+        "После перевода, пожалуйста, **пришлите скриншот чека** прямо сюда в чат.\n\n"
+        "Как только мы получим подтверждение, заказ будет передан курьеру!"
+    )
+    update.message.reply_text(text)
+    return PAYMENT
+
+# Ловим скриншот чека
+def handle_payment_screenshot(update, context):
+    if update.message.photo or (update.message.text and len(update.message.text) > 2):
+        # Если прислали фото — сохраняем
+        if update.message.photo:
+            context.user_data['payment_screenshot'] = update.message.photo[-1].file_id
+
+        # Если прислали текст (время), сохраняем его тоже
+        if update.message.text:
+            context.user_data['order_time'] = update.message.text
+
+        update.message.reply_text("✅ Данные получены! Финализируем ваш заказ...")
+        return send_info_to_courier(update, context)
+    else:
+        update.message.reply_text("Пожалуйста, пришлите скриншот чека для подтверждения оплаты.")
+        return PAYMENT
 
 
 # отправка инфы заказа курьеру
@@ -313,6 +345,9 @@ def send_info_to_courier(update, context):
     
     context.bot.send_message(chat_id=COURIER_TG_ID, text=order_details)
     update.message.reply_text("Спасибо! Ваш заказ принят и передан курьеру. Ждите доставку! 🌸")
+    screenshot = context.user_data.get('payment_screenshot')
+    if screenshot:
+        context.bot.send_photo(chat_id=COURIER_TG_ID, photo=screenshot, caption="🧾 Чек об оплате")
     
     return ConversationHandler.END
 
@@ -397,14 +432,14 @@ def main():
             SAVE_ADDRESS:  [MessageHandler(Filters.text, save_address)],
             # Для оформления заказа: дата доставки
             SAVE_DATE:     [MessageHandler(Filters.text, save_date)],
+            # выбор способа оплаты
+            PAYMENT: [MessageHandler(Filters.photo, handle_payment_screenshot),
+                      MessageHandler(Filters.text & ~Filters.command, handle_payment_screenshot)],
             # подтверждение заказа
             ORDER_CONFIRM: [
 
             ],
-            # выбор способа оплаты
-            PAYMENT_CHOICE: [
 
-            ],
             # отправка информации о заказе курьеру
             DELIVERY:      [MessageHandler(Filters.text, send_info_to_courier)],
         },
