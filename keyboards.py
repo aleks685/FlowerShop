@@ -91,3 +91,51 @@ def get_bouquet_menu_keyboard():
         ]
     ]
     return InlineKeyboardMarkup(keyboard)
+
+
+def get_bouquet_card_keyboard(bouquet_id):
+    keyboard = [
+        [InlineKeyboardButton("✅ Заказать этот букет", callback_data=f"order_{bouquet_id}")],
+        [
+            InlineKeyboardButton("👩‍🎨 Консультация", callback_data="consultation"),
+            InlineKeyboardButton("📚 В каталог", callback_data="catalog")
+        ]
+    ]
+    return InlineKeyboardMarkup(keyboard)
+
+
+def get_color_keyboard():
+    keyboard = [
+        [
+            InlineKeyboardButton("⚪ Светлые", callback_data="color_white"),
+            InlineKeyboardButton("🔴 Яркие", callback_data="color_bright")
+        ],
+        [
+            InlineKeyboardButton("🟣 Темные", callback_data="color_dark"),
+            InlineKeyboardButton("❓ Не важно", callback_data="color_any")
+        ]
+    ]
+    return InlineKeyboardMarkup(keyboard)
+
+def get_price_keyboard():
+    keyboard = [
+        [
+            InlineKeyboardButton("До 1000", callback_data="price_1000"),
+            InlineKeyboardButton("До 3000", callback_data="price_3000")
+        ],
+        [
+            InlineKeyboardButton("До 5000", callback_data="price_5000"),
+            InlineKeyboardButton("Любая цена", callback_data="price_999999")
+        ]
+    ]
+    return InlineKeyboardMarkup(keyboard)
+
+def get_bouquet_card_keyboard(bouquet_id):
+    keyboard = [
+        [InlineKeyboardButton("✅ Заказать этот букет", callback_data=f"order_{bouquet_id}")],
+        [
+            InlineKeyboardButton("👩‍🎨 Консультация", callback_data="consultution"), # Исправил опечатку, чтобы совпадало с твоим bot.py
+            InlineKeyboardButton("📚 В каталог", callback_data="catalog")
+        ]
+    ]
+    return InlineKeyboardMarkup(keyboard)
