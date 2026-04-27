@@ -1,3 +1,16 @@
-python-telegram-bot==13.2
+APScheduler==3.6.3
+certifi==2026.4.22
+cffi==2.0.0
+cryptography==47.0.0
 environs==11.2.1
+marshmallow==4.3.0
+pycparser==3.0
 python-dotenv==1.0.1
+python-telegram-bot==13.2
+pytz==2026.1.post1
+setuptools==69.5.1
+six==1.17.0
+tornado==6.5.5
+tzdata==2026.2
+tzlocal==5.3.1
+urllib3==1.26.15

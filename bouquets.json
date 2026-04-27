@@ -8,10 +8,8 @@
             "light"
         ],
         "meaning": "Нежный букет для теплых поздравлений.",
-        "composition": [
-            "роза"
-        ],
-        "image": "images/buket_21_roses.jpg"
+        "composition": ["роза"],
+        "image": "images/id1.jpg"
     },
     {
         "id": 2,
@@ -22,10 +20,8 @@
             "light"
         ],
         "meaning": "Нежный букет для теплых поздравлений.",
-        "composition": [
-            "роза"
-        ],
-        "image": "images/buket_21_roses.jpg"
+        "composition": ["роза"],
+        "image": "images/id2.jpg"
     },
     {
         "id": 3,
@@ -36,10 +32,8 @@
             "light"
         ],
         "meaning": "Нежный букет для теплых поздравлений.",
-        "composition": [
-            "роза"
-        ],
-        "image": "images/buket_21_roses.jpg"
+        "composition": ["роза"],
+        "image": "images/id3.jpg"
     },
     {
         "id": 4,
@@ -48,10 +42,8 @@
         "price": 2000,
         "color": "bright",
         "meaning": "Сочный и праздничный букет для ярких эмоций.",
-        "composition": [
-            "гербера"
-        ],
-        "image": "images/gerbera_bright_big.jpg"
+        "composition": ["gerbera"],
+        "image": "images/id4.jpg"
     },
     {
         "id": 5,
@@ -60,10 +52,8 @@
         "price": 1000,
         "color": "bright",
         "meaning": "Сочный и праздничный букет для ярких эмоций.",
-        "composition": [
-            "гербера"
-        ],
-        "image": "images/gerbera_bright_medium.jpg"
+        "composition": ["gerbera"],
+        "image": "images/id5.jpg"
     },
     {
         "id": 6,
