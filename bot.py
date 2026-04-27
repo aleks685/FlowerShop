@@ -419,6 +419,10 @@ def main():
                 CallbackQueryHandler(start_order, pattern="^order"),
                 CallbackQueryHandler(show_catalog, pattern="^catalog$"),
                 CallbackQueryHandler(main_menu, pattern="^main_menu$"),
+                # Добавляем обработку кнопки консультации, если она есть в клавиатуре букета
+                CallbackQueryHandler(request_consultation, pattern="^consultution$"),
+                # Если пользователь просто напишет текст, пока открыт букет:
+                MessageHandler(Filters.text & ~Filters.command, request_consultation),
             ],
             # выбор цвета букета
             COLOR_CHOICE: [
