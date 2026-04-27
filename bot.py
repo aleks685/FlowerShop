@@ -306,52 +306,57 @@ def request_payment(update, context):
 
 # Ловим скриншот чека
 def handle_payment_screenshot(update, context):
-    # Если мы еще не сохранили время, значит текущий текст — это время
+    # ШАГ 1: Если время еще не введено, значит текущее сообщение — это время доставки
     if 'order_time' not in context.user_data:
         context.user_data['order_time'] = update.message.text
-        # Теперь, когда время есть, просим оплату
+        
+        # Теперь, когда время сохранено, просим оплату
         text = (
-            "💳 Для оплаты переведите сумму по номеру +79991234567.\n"
-            "Пришлите скриншот чека сюда."
+            "💳 Для оплаты переведите сумму заказа по номеру +79991234567.\n"
+            "После перевода **пришлите скриншот чека** сюда в чат."
         )
         update.message.reply_text(text)
         return PAYMENT # Остаемся в этом же состоянии, ждем фото
-    
-    # Если время уже есть, значит мы ждем фото или подтверждение
+
+    # ШАГ 2: Если время уже есть, проверяем, прислал ли пользователь фото
     if update.message.photo:
         context.user_data['payment_screenshot'] = update.message.photo[-1].file_id
-        update.message.reply_text("✅ Данные получены! Финализируем...")
+        update.message.reply_text("✅ Чек получен! Данные переданы курьеру.")
         return send_info_to_courier(update, context)
-    else:
-        update.message.reply_text("Пожалуйста, пришлите именно фото чека.")
-        return PAYMENT
-
+    
+    # Если прислали текст вместо фото на этапе оплаты
+    update.message.reply_text("Пожалуйста, пришлите скриншот чека (фотографией).")
+    return PAYMENT
 
 # отправка инфы заказа курьеру
 def send_info_to_courier(update, context):
-    context.user_data['order_time'] = update.message.text
-    
-    # Достаем сохраненный ID букета
+    # Берем данные ТОЛЬКО из context.user_data
     b_id = context.user_data.get('order_bouquet_id', 'Неизвестно')
     discount = context.user_data.get('discount', '0%')
-    # Собираем данные
+    name = context.user_data.get('order_name', 'Не указано')
+    phone = context.user_data.get('order_phone', 'Не указано')
+    address = context.user_data.get('order_address', 'Не указано')
+    date = context.user_data.get('order_date', 'Не указано')
+    time = context.user_data.get('order_time', 'Не указано') # Теперь тут будет время, а не "None"
+
     order_details = (
         f"🚀 НОВЫЙ ЗАКАЗ!\n"
         f"💐 ID букета: {b_id}\n"
         f"💰 Скидка: {discount}\n"
-        f"Имя: {context.user_data.get('order_name', 'Не указано')}\n"
-        f"Телефон: {context.user_data.get('order_phone', 'Не указано')}\n"
-        f"Адрес: {context.user_data.get('order_address', 'Не указано')}\n"
-        f"Дата: {context.user_data.get('order_date', 'Не указано')}\n"
-        f"Время: {context.user_data.get('order_time', 'Не указано')}"
+        f"Имя: {name}\n"
+        f"Телефон: {phone}\n"
+        f"Адрес: {address}\n"
+        f"Дата: {date}\n"
+        f"Время: {time}"
     )
     
     context.bot.send_message(chat_id=COURIER_TG_ID, text=order_details)
-    update.message.reply_text("Спасибо! Ваш заказ принят и передан курьеру. Ждите доставку! 🌸")
+    
     screenshot = context.user_data.get('payment_screenshot')
     if screenshot:
         context.bot.send_photo(chat_id=COURIER_TG_ID, photo=screenshot, caption="🧾 Чек об оплате")
     
+    update.message.reply_text("Спасибо! Ваш заказ принят! 🌸")
     return ConversationHandler.END
 
 
