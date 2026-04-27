@@ -8,6 +8,8 @@ from telegram import ReplyKeyboardMarkup, Update, ChatAction, InputMediaPhoto
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, \
     CallbackQueryHandler, ConversationHandler
 
+from picker_flow import show_events, save_occasion, save_color, save_price
+
 from keyboards import get_consent_keyboard, get_main_menu_keyboard, get_occasion_keyboard, \
     get_catalog_keyboard, get_bouquet_menu_keyboard
 
@@ -116,17 +118,6 @@ def start_order(update, context):
     return SAVE_NAME
 
 
-# выбор событий для выбора
-def show_events(update, context):
-    print("Вывод событий на выбор")
-    query = update.callback_query
-    query.answer()
-    update.effective_chat.send_message(text="К какому событию готовимся? "
-                                       "Выберите один из вариантов, либо укажите свой",
-                                       reply_markup=get_occasion_keyboard())
-    return MAIN_MENU
-
-
 # запрос телефона для консультации
 def request_consultation(update, context):
     update.effective_chat.send_message('Введите номер телефона и флорист перезвонит Вам в течение 20 минут:')
@@ -199,6 +190,8 @@ def handle_confirm(update, context):
 def main():
     updater = Updater(token=BOT_TOKEN)
     dispatcher = updater.dispatcher
+
+    dispatcher.bot_data["bouquets"] = bouquets
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("start", start)],
         states={
@@ -221,24 +214,21 @@ def main():
             ],
             # выбор события
             EVENT_CHOICE: [
-                CallbackQueryHandler(handle_confirm, pattern="^birthday$"),
-                CallbackQueryHandler(handle_confirm, pattern="^wedding$"),
-                CallbackQueryHandler(handle_confirm, pattern="^school$"),
-                CallbackQueryHandler(handle_confirm, pattern="^no_reason$"),
-                CallbackQueryHandler(handle_confirm, pattern="^other_occasion$"),
+                CallbackQueryHandler(save_occasion, pattern="^(birthday|wedding|school|no_reason|other_occasion)$"),
+            ],
+
+            COLOR_CHOICE: [
+                CallbackQueryHandler(save_color, pattern="^(light|bright|soft)$"),
+            ],
+
+            PRICE_CHOICE: [
+                CallbackQueryHandler(save_price, pattern="^(500|1000|2000)$"),
             ],
             # меню при выбранном букете (ещё букет? консультация? в меню?)
             BOUQUET_MENU: [
                 CallbackQueryHandler(start_order, pattern="^order$"),
                 CallbackQueryHandler(show_catalog, pattern="^catalog$"),
                 CallbackQueryHandler(main_menu, pattern="^main_menu$"),
-            ],
-            # выбор цвета букета
-            COLOR_CHOICE: [
-
-            ],
-            # выбор стоимости букета
-            PRICE_CHOICE: [
 
             ],
             # консультация....не додумала... отправка номера телефона для консультации флористу

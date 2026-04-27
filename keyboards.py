@@ -41,16 +41,6 @@ def get_occasion_keyboard():
                 "🏫 В школу",
                 callback_data="school"
             ),
-            InlineKeyboardButton(
-                "🌷 Без повода",
-                callback_data="no_reason"
-            )
-        ],
-        [
-            InlineKeyboardButton(
-                "✏️ Другой повод",
-                callback_data="other_occasion"
-            )
         ]
     ]
 
@@ -90,4 +80,24 @@ def get_bouquet_menu_keyboard():
                 "[ вернуться в меню]", callback_data="main_menu")
         ]
     ]
+    return InlineKeyboardMarkup(keyboard)
+
+
+def get_color_keyboard():
+    keyboard = [
+        [InlineKeyboardButton("🤍 Светлый", callback_data="light")],
+        [InlineKeyboardButton("🌈 Яркий", callback_data="bright")],
+        [InlineKeyboardButton("🌸 Мягкий", callback_data="soft")],
+    ]
+
+    return InlineKeyboardMarkup(keyboard)
+
+
+def get_price_keyboard():
+    keyboard = [
+        [InlineKeyboardButton("500 ₽", callback_data="500")],
+        [InlineKeyboardButton("1000 ₽", callback_data="1000")],
+        [InlineKeyboardButton("2000 ₽", callback_data="2000")],
+    ]
+
     return InlineKeyboardMarkup(keyboard)
