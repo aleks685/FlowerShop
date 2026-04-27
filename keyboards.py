@@ -41,16 +41,6 @@ def get_occasion_keyboard():
                 "🏫 В школу",
                 callback_data="school"
             ),
-            InlineKeyboardButton(
-                "🌷 Без повода",
-                callback_data="no_reason"
-            )
-        ],
-        [
-            InlineKeyboardButton(
-                "✏️ Другой повод",
-                callback_data="other_occasion"
-            )
         ]
     ]
 
@@ -93,49 +83,21 @@ def get_bouquet_menu_keyboard():
     return InlineKeyboardMarkup(keyboard)
 
 
-def get_bouquet_card_keyboard(bouquet_id):
-    keyboard = [
-        [InlineKeyboardButton("✅ Заказать этот букет", callback_data=f"order_{bouquet_id}")],
-        [
-            InlineKeyboardButton("👩‍🎨 Консультация", callback_data="consultution"),
-            InlineKeyboardButton("📚 В каталог", callback_data="catalog")
-        ]
-    ]
-    return InlineKeyboardMarkup(keyboard)
-
-
 def get_color_keyboard():
     keyboard = [
-        [
-            InlineKeyboardButton("⚪ Светлые", callback_data="color_white"),
-            InlineKeyboardButton("🔴 Яркие", callback_data="color_bright")
-        ],
-        [
-            InlineKeyboardButton("🟣 Темные", callback_data="color_dark"),
-            InlineKeyboardButton("❓ Не важно", callback_data="color_any")
-        ]
+        [InlineKeyboardButton("🤍 Светлый", callback_data="light")],
+        [InlineKeyboardButton("🌈 Яркий", callback_data="bright")],
+        [InlineKeyboardButton("🌸 Мягкий", callback_data="soft")],
     ]
+
     return InlineKeyboardMarkup(keyboard)
+
 
 def get_price_keyboard():
     keyboard = [
-        [
-            InlineKeyboardButton("До 1000", callback_data="price_1000"),
-            InlineKeyboardButton("До 3000", callback_data="price_3000")
-        ],
-        [
-            InlineKeyboardButton("До 5000", callback_data="price_5000"),
-            InlineKeyboardButton("Любая цена", callback_data="price_999999")
-        ]
+        [InlineKeyboardButton("500 ₽", callback_data="500")],
+        [InlineKeyboardButton("1000 ₽", callback_data="1000")],
+        [InlineKeyboardButton("2000 ₽", callback_data="2000")],
     ]
-    return InlineKeyboardMarkup(keyboard)
 
-def get_bouquet_card_keyboard(bouquet_id):
-    keyboard = [
-        [InlineKeyboardButton("✅ Заказать этот букет", callback_data=f"order_{bouquet_id}")],
-        [
-            InlineKeyboardButton("👩‍🎨 Консультация", callback_data="consultution"),
-            InlineKeyboardButton("📚 В каталог", callback_data="catalog")
-        ]
-    ]
     return InlineKeyboardMarkup(keyboard)

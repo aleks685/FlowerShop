@@ -4,7 +4,9 @@
         "name": "букет из роз",
         "occasion": "birthday",
         "price": 2000,
-        "color": "light",
+        "color": [
+            "light"
+        ],
         "meaning": "Нежный букет для теплых поздравлений.",
         "composition": ["роза"],
         "image": "images/id1.jpg"
@@ -14,7 +16,9 @@
         "name": "букет из роз",
         "occasion": "birthday",
         "price": 1000,
-        "color": "light",
+        "color": [
+            "light"
+        ],
         "meaning": "Нежный букет для теплых поздравлений.",
         "composition": ["роза"],
         "image": "images/id2.jpg"
@@ -24,7 +28,9 @@
         "name": "букет из роз",
         "occasion": "birthday",
         "price": 500,
-        "color": "light",
+        "color": [
+            "light"
+        ],
         "meaning": "Нежный букет для теплых поздравлений.",
         "composition": ["роза"],
         "image": "images/id3.jpg"
@@ -56,8 +62,46 @@
         "price": 500,
         "color": "bright",
         "meaning": "Сочный и праздничный букет для ярких эмоций.",
-        "composition": ["gerbera"],
-        "image": "images/id6.jpg"
+        "composition": [
+            "гербера"
+        ],
+        "image": "images/gerbera_bright_small.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Букет из пионовидных роз",
+        "occasion": "birthday",
+        "price": 2000,
+        "color": "soft",
+        "meaning": "Нежный и утончённый букет для особенного дня.",
+        "composition": [
+            "пионовидная роза"
+        ],
+        "image": "images/peony_roses_soft_big.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Букет из пионовидных роз",
+        "occasion": "birthday",
+        "price": 1000,
+        "color": "soft",
+        "meaning": "Нежный и утончённый букет для особенного дня.",
+        "composition": [
+            "пионовидная роза"
+        ],
+        "image": "images/peony_roses_soft_medium.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Букет из пионовидных роз",
+        "occasion": "soft",
+        "price": 500,
+        "color": "мягкий",
+        "meaning": "Нежный и утончённый букет для особенного дня.",
+        "composition": [
+            "пионовидная роза"
+        ],
+        "image": "images/peony_roses_soft_small.jpg"
     },
     {
         "id": 10,
@@ -65,9 +109,12 @@
         "occasion": "wedding",
         "price": 2000,
         "color": "light",
-        "meaning": "Элегантный и торжественный букет для особого дня.",
-        "composition": ["белая роза", "эустома"],
-        "image": "images/id10.jpg"
+        "meaning": "Элегантный и торжественный букет для особенного дня.",
+        "composition": [
+            "белая роза",
+            "эустома"
+        ],
+        "image": "images/wedding_white_roses_light_2000.jpg"
     },
     {
         "id": 11,
@@ -75,9 +122,12 @@
         "occasion": "wedding",
         "price": 1000,
         "color": "light",
-        "meaning": "Элегантный и торжественный букет для особого дня.",
-        "composition": ["белая роза", "эустома"],
-        "image": "images/id11.jpg"
+        "meaning": "Элегантный и торжественный букет для особенного дня.",
+        "composition": [
+            "белая роза",
+            "эустома"
+        ],
+        "image": "images/wedding_white_roses_light_1000.jpg"
     },
     {
         "id": 12,
@@ -85,9 +135,12 @@
         "occasion": "wedding",
         "price": 500,
         "color": "light",
-        "meaning": "Элегантный и торжественный букет для особого дня.",
-        "composition": ["белая роза", "эустома"],
-        "image": "images/id12.jpg"
+        "meaning": "Элегантный и торжественный букет для особенного дня.",
+        "composition": [
+            "белая роза",
+            "эустома"
+        ],
+        "image": "images/wedding_white_roses_light_500.jpg"
     },
     {
         "id": 13,
@@ -95,29 +148,118 @@
         "occasion": "wedding",
         "price": 2000,
         "color": "bright",
-        "meaning": "Яркий и эффектный букет для незабываемой свадьбы.",
-        "composition": ["пионовидная роза", "гербера"],
-        "image": "images/id13.jpg"
+        "meaning": "Яркий и эффектный букет для смелой и незабываемой свадьбы.",
+        "composition": [
+            "пионовидная роза",
+            "гербера"
+        ],
+        "image": "images/wedding_bright_peony_2000.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Свадебный букет из пионовидных роз",
+        "occasion": "wedding",
+        "price": 1000,
+        "color": "bright",
+        "meaning": "Яркий и эффектный букет для смелой и незабываемой свадьбы.",
+        "composition": [
+            "пионовидная роза",
+            "гербера"
+        ],
+        "image": "images/wedding_bright_peony_1000.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Свадебный букет из пионовидных роз",
+        "price": 500,
+        "color": "bright",
+        "meaning": "Яркий и эффектный букет для смелой и незабываемой свадьбы.",
+        "composition": [
+            "пионовидная роза",
+            "гербера"
+        ],
+        "image": "images/wedding_bright_peony_500.jpg"
     },
     {
         "id": 16,
-        "name": "Свадебный букет из пионов",
+        "name": "Свадебный букет из пионов и эустомы",
         "occasion": "wedding",
         "price": 2000,
         "color": "soft",
-        "meaning": "Нежный букет в мягких оттенках.",
-        "composition": ["пион", "эустома", "розовая гвоздика"],
-        "image": "images/id16.jpg"
+        "meaning": "Нежный букет в мягких оттенках для романтичной свадебной атмосферы.",
+        "composition": [
+            "пион",
+            "эустома",
+            "розовая гвоздика"
+        ],
+        "image": "images/wedding_soft_peony_2000.jpg"
+    },
+    {
+        "id": 17,
+        "name": "Свадебный букет из пионов и эустомы",
+        "occasion": "wedding",
+        "price": 1000,
+        "color": "soft",
+        "meaning": "Нежный букет в мягких оттенках для романтичной свадебной атмосферы.",
+        "composition": [
+            "пион",
+            "эустома",
+            "розовая гвоздика"
+        ],
+        "image": "images/wedding_soft_peony_1000.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Свадебный букет из пионов и эустомы",
+        "occasion": "wedding",
+        "price": 500,
+        "color": "soft",
+        "meaning": "Нежный букет в мягких оттенках для романтичной свадебной атмосферы.",
+        "composition": [
+            "пион",
+            "эустома",
+            "розовая гвоздика"
+        ],
+        "image": "images/wedding_soft_peony_500.jpg"
     },
     {
         "id": 19,
         "name": "Школьный букет из хризантем",
         "occasion": "school",
         "price": 2000,
+        "color": "soft",
+        "meaning": "Элегантный и праздничный букет для важного школьного дня.",
+        "composition": [
+            "белая хризантема",
+            "эустома",
+            "альстромерия"
+        ],
+        "image": "images/school_light_2000.jpg"
+    },
+    {
+        "id": 20,
+        "name": "Школьный букет из хризантем",
+        "occasion": "school",
+        "price": 1000,
         "color": "light",
-        "meaning": "Праздничный букет для школьного дня.",
-        "composition": ["белая хризантема", "эустома", "альстромерия"],
-        "image": "images/id19.jpg"
+        "meaning": "Аккуратный и светлый букет для учителя или школьника.",
+        "composition": [
+            "белая хризантема",
+            "альстромерия"
+        ],
+        "image": "images/school_light_1000.jpg"
+    },
+    {
+        "id": 21,
+        "name": "Школьный букет из хризантем",
+        "occasion": "school",
+        "price": 500,
+        "color": "light",
+        "meaning": "Небольшой нежный букет для школьного праздника.",
+        "composition": [
+            "белая хризантема"
+        ],
+        "image": "images/school_light_500.jpg"
     },
     {
         "id": 22,
@@ -125,9 +267,13 @@
         "occasion": "school",
         "price": 2000,
         "color": "bright",
-        "meaning": "Яркий букет для первого звонка.",
-        "composition": ["гербера", "хризантема", "альстромерия"],
-        "image": "images/id22.jpg"
+        "meaning": "Яркий и праздничный букет для первого звонка и особенного дня.",
+        "composition": [
+            "гербера",
+            "хризантема",
+            "альстромерия"
+        ],
+        "image": "images/school_bright_2000.jpg"
     },
     {
         "id": 23,
@@ -135,9 +281,12 @@
         "occasion": "school",
         "price": 1000,
         "color": "bright",
-        "meaning": "Сочный и радостный букет для праздника.",
-        "composition": ["гербера", "хризантема"],
-        "image": "images/id23.jpg"
+        "meaning": "Сочный и радостный букет для школьного праздника.",
+        "composition": [
+            "гербера",
+            "хризантема"
+        ],
+        "image": "images/school_bright_1000.jpg"
     },
     {
         "id": 24,
@@ -145,9 +294,11 @@
         "occasion": "school",
         "price": 500,
         "color": "bright",
-        "meaning": "Небольшой яркий букет для настроения.",
-        "composition": ["гербера"],
-        "image": "images/id24.jpg"
+        "meaning": "Небольшой яркий букет для хорошего настроения.",
+        "composition": [
+            "гербера"
+        ],
+        "image": "images/school_bright_500.jpg"
     },
     {
         "id": 25,
@@ -155,9 +306,13 @@
         "occasion": "school",
         "price": 2000,
         "color": "soft",
-        "meaning": "Нежный букет в мягких оттенках.",
-        "composition": ["альстромерия", "эустома", "розовая хризантема"],
-        "image": "images/id25.jpg"
+        "meaning": "Нежный букет в мягких оттенках для теплого школьного праздника.",
+        "composition": [
+            "альстромерия",
+            "эустома",
+            "розовая хризантема"
+        ],
+        "image": "images/school_soft_2000.jpg"
     },
     {
         "id": 26,
@@ -165,9 +320,12 @@
         "occasion": "school",
         "price": 1000,
         "color": "soft",
-        "meaning": "Аккуратный и нежный букет для учителя.",
-        "composition": ["альстромерия", "розовая хризантема"],
-        "image": "images/id26.jpg"
+        "meaning": "Аккуратный и нежный букет для учителя или ученика.",
+        "composition": [
+            "альстромерия",
+            "розовая хризантема"
+        ],
+        "image": "images/school_soft_1000.jpg"
     },
     {
         "id": 27,
@@ -175,8 +333,10 @@
         "occasion": "school",
         "price": 500,
         "color": "soft",
-        "meaning": "Небольшой нежный букет.",
-        "composition": ["альстромерия"],
-        "image": "images/id27.jpg"
+        "meaning": "Небольшой нежный букет в спокойных оттенках.",
+        "composition": [
+            "альстромерия"
+        ],
+        "image": "images/school_soft_500.jpg"
     }
 ]
